@@ -1,0 +1,31 @@
+const { DataTypes } = require('sequelize');
+
+module.exports = function(sequelize){
+  return sequelize.define('LogsOrgs', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    tp_id: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    org: {
+      type: DataTypes.STRING(12),
+      allowNull: true,
+    },
+    project: {
+      type: DataTypes.STRING(12),
+      allowNull: true,
+    },
+  }, {
+    tableName: 'logs_orgs',
+    timestamps: false,
+  });
+};
