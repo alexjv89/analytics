@@ -33,9 +33,9 @@ export default function SettingsNavigation({ params }) {
     return (
         <nav className="w-48 border border-gray-200 rounded-lg bg-white">
             <div className="flex flex-col">
-                <Item href={`/orgs/${o_id}/settings`}>General</Item>
-                <Item href={`/orgs/${o_id}/settings/members`}>Members</Item>
-                <Item href={`/orgs/${o_id}/settings/apikeys`}>API keys</Item>
+                <Item href={`/projects/${o_id}/settings`}>General</Item>
+                <Item href={`/projects/${o_id}/settings/members`}>Members</Item>
+                <Item href={`/projects/${o_id}/settings/apikeys`}>API keys</Item>
             </div>
         </nav>
     )

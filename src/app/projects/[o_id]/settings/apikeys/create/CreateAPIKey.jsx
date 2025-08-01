@@ -41,9 +41,9 @@ export default function CreateAPIKey({ org, params }) {
   }
 
   const breadcrumbs = [
-    { text: `${org.name}`, href: `/orgs/${params.o_id}/settings` },
-    { text: 'Settings', href: `/orgs/${params.o_id}/settings` },
-    { text: 'API Keys', href: `/orgs/${params.o_id}/settings/apikeys` },
+    { text: `${org.name}`, href: `/projects/${params.o_id}/settings` },
+    { text: 'Settings', href: `/projects/${params.o_id}/settings` },
+    { text: 'API Keys', href: `/projects/${params.o_id}/settings/apikeys` },
     { text: 'Create' }
   ]
 
@@ -91,7 +91,7 @@ export default function CreateAPIKey({ org, params }) {
         />
         
         <Button asChild>
-          <a href={`/orgs/${params.o_id}/settings/apikeys`}>Proceed</a>
+          <a href={`/projects/${params.o_id}/settings/apikeys`}>Proceed</a>
         </Button>
       </div>
     )

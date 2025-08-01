@@ -7,7 +7,7 @@ import async from "async";
 import nanoid from "@/config/nanoid";
 import _ from "lodash";
 
-export async function createOrg(formData) {
+export async function createProject(formData) {
   const session = await auth()
   const db = getDB();
   
@@ -16,8 +16,8 @@ export async function createOrg(formData) {
   }
 
   const workflow = {
-    createOrg: async () => {
-      let org = {
+    createProject: async () => {
+      let p = {
         id: nanoid(),
         name: formData.get("name"),
         description: formData.get("description"),
@@ -28,15 +28,16 @@ export async function createOrg(formData) {
         settings: {},
         feature_flags: {
           show_onboarding: true
-        }
+        },
+        client_secret: nanoid(32),
       };
-      let createdOrg = await db.Orgs.create(org);
-      return createdOrg;
+      let project = await db.Projects.create(p);
+      return project;
     },
-    createMembership: ["createOrg", async (results) => {
+    createMembership: ["createProject", async (results) => {
       let membership = {
         user: session?.user?.id,
-        org: results.createOrg.id,
+        project: results.createProject.id,
         type: 'admin'
       }
       let createdMembership = await db.Members.create(membership);
@@ -46,6 +47,6 @@ export async function createOrg(formData) {
 
   let results = await async.auto(workflow);
 
-  revalidatePath("/orgs", "layout");
+  revalidatePath("/projects", "layout");
   return results;
 }

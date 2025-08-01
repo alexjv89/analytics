@@ -17,9 +17,9 @@ export default function ListMembers({ params, org, members }) {
 	}
 
 	const breadcrumbs = [
-		{ text: 'Orgs', href: '/orgs' },
-		{ text: `${org.name}`, href: `/orgs/${params.o_id}/settings` },
-		{ text: 'Settings', href: `/orgs/${params.o_id}/settings` },
+		{ text: 'Projects', href: '/projects' },
+		{ text: `${org.name}`, href: `/projects/${params.o_id}/settings` },
+		{ text: 'Settings', href: `/projects/${params.o_id}/settings` },
 		{ text: 'Members' },
 	];
 

@@ -88,7 +88,7 @@ Includes breadcrumbs: Orgs → [Org Name] → Settings → Members
       }
     },
     org: {
-      description: 'Organization object containing id and name',
+      description: 'Projects object containing id and name',
       control: false,
       table: {
         type: { summary: 'object' },

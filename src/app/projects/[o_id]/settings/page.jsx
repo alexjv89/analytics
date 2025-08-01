@@ -10,7 +10,7 @@ export default async function SettingsPage({ params }) {
     const { org } = await isMember({ params: resolvedParams });
     
     if (!org) {
-        return <div>Organization not found</div>;
+        return <div>Project not found</div>;
     }
 
     return <General params={resolvedParams} org={org} />;

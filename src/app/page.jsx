@@ -5,5 +5,5 @@ import loginRequired from '@/policies/loginRequired';
 export default async function Home() {
   // Require authentication before redirecting
   await loginRequired();
-  redirect('/orgs');
+  redirect('/projects');
 }

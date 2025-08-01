@@ -11,7 +11,7 @@ export default function OrgCard({ name, org_id, createdAt }){
       <Tooltip>
         <TooltipTrigger asChild>
           <Card className="no-underline transition-all duration-100 ease-in-out hover:shadow-lg hover:bg-accent hover:-translate-y-0.5 cursor-pointer">
-            <Link href={`/orgs/${org_id}/transactions`} className="no-underline text-inherit">
+            <Link href={`/projects/${org_id}/transactions`} className="no-underline text-inherit">
               <CardContent className="">
                 <h3 className="text-lg font-semibold leading-none truncate text-inherit">
                   {name}

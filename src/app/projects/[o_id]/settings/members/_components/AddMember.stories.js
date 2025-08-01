@@ -57,7 +57,7 @@ Migrated from MUI Joy to shadcn/ui:
   },
   argTypes: {
     params: {
-      description: 'Organization parameters including organization ID',
+      description: 'Project parameters including organization ID',
       control: false,
       table: {
         type: { summary: 'object' },

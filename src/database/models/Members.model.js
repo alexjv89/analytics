@@ -25,7 +25,7 @@ module.exports = function (sequelize) {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    org: {
+    project: {
       type: DataTypes.STRING(12),
       allowNull: true,
     },

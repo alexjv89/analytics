@@ -10,16 +10,16 @@ import ShowJSON from '@/components/switchless/ShowJSON';
 
 export default function General({ params, org }) {
     const breadcrumbs = [
-        {text: 'Orgs', href: '/orgs'},
-        {text: `${org.name}`, href: `/orgs/${params.o_id}/settings`}, 
-        {text: 'Settings', href: `/orgs/${params.o_id}/settings`},
+        {text: 'Projects', href: '/projects'},
+        {text: `${org.name}`, href: `/projects/${params.o_id}/settings`}, 
+        {text: 'Settings', href: `/projects/${params.o_id}/settings`},
         {text: 'General'}, 
     ];
 
     const organizationData = [
-        { label: 'Organization Name', value: org.name },
+        { label: 'Project Name', value: org.name },
         { label: 'Created Date', value: new Date(org.created_at).toISOString().split('T')[0] },
-        { label: 'Organization ID', value: org.id },
+        { label: 'Project ID', value: org.id },
     ];
 
     const GeneralContent = () => (

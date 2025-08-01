@@ -1,10 +1,10 @@
 import "server-only";
-import ListOrgs from "./ListOrgs";
+import ListProjects from "./ListProjects";
 import async from "async";
 import loginRequired from "@/policies/loginRequired";
 import { getDB } from "@/database";
 
-export default async function OrgsPage() {
+export default async function ProjectsPage() {
   const user = await loginRequired();
   const db = getDB();
   
@@ -13,13 +13,13 @@ export default async function OrgsPage() {
       const member = await db.Members.findAll({where: {user: user.id}, raw: true});
       return member;
     },
-    getOrgs:["getMembers", async (results)=>{
-      let OrgsIds = results.getMembers.map((member)=>member.org);
-      const orgs = await db.Orgs.findAll({where: {id: OrgsIds},raw: true});
-      return orgs;
+    getProjects:["getMembers", async (results)=>{
+      let ProjectsIds = results.getMembers.map((member)=>member.project);
+      const projects = await db.Projects.findAll({where: {id: ProjectsIds},raw: true});
+      return projects;
     }]
   }
   const results = await async.auto(workflow);
     
-  return <ListOrgs orgs={results.getOrgs} />;
+  return <ListProjects projects={results.getProjects} />;
 }

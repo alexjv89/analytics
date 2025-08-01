@@ -69,7 +69,7 @@ export default function APIKeys({ api_keys, org, params }) {
       <div className="flex gap-2">
         <Button variant="outline" size='sm' disabled>Documentation</Button>
         <Button asChild size='sm'>
-          <Link href={`/orgs/${params.o_id}/settings/apikeys/create`}>
+          <Link href={`/projects/${params.o_id}/settings/apikeys/create`}>
             <Plus size={16} className="mr-2" />
             Create new API Key
           </Link>
@@ -95,9 +95,9 @@ export default function APIKeys({ api_keys, org, params }) {
 
 
   const breadcrumbs = [
-    { text: 'Orgs', href: '/orgs' },
-    { text: `${org.name}`, href: `/orgs/${params.o_id}/settings` },
-    { text: 'Settings', href: `/orgs/${params.o_id}/settings` },
+    { text: 'Projects', href: '/projects' },
+    { text: `${org.name}`, href: `/projects/${params.o_id}/settings` },
+    { text: 'Settings', href: `/projects/${params.o_id}/settings` },
     { text: 'API Keys' },
   ];
 

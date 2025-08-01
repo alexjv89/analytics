@@ -1,4 +1,4 @@
-import CreateOrg from "./CreateOrg";
+import CreateOrg from "./CreateProject";
 import { createOrg } from "../action";
 
 // Test utilities (for interaction tests)
@@ -78,7 +78,7 @@ export const HappyCase = {
       const nameInput = screen.getByLabelText(/name/i);
       const descriptionInput = screen.getByLabelText(/description/i);
 
-      await userEvent.type(nameInput, "Test Organization");
+      await userEvent.type(nameInput, "Test Project");
       await userEvent.type(descriptionInput, "A test organization");
 
       const submitButton = screen.getByRole("button", { name: /^create$/i });
@@ -143,7 +143,7 @@ export const ErrorCase = {
 
     await step("Fill and submit form", async () => {
       const nameInput = screen.getByLabelText(/name/i);
-      await userEvent.type(nameInput, "Test Organization");
+      await userEvent.type(nameInput, "Test Project");
 
       const submitButton = screen.getByRole("button", { name: /^create$/i });
       await userEvent.click(submitButton);

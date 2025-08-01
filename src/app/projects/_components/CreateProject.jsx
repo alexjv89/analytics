@@ -8,9 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Plus, X } from "lucide-react";
-import { createOrg } from "../action";
+import { createProject } from "../action";
 
-export default function CreateOrgModal() {
+export default function CreateProjectModal() {
   const [loading, setLoading] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -21,7 +21,7 @@ export default function CreateOrgModal() {
     setLoading(true);
     const formData = new FormData(e.target);
     try {
-      const result = await createOrg(formData);
+      const result = await createProject(formData);
       setOpen(false);
     } catch (error) {
       setError(error);
@@ -36,12 +36,12 @@ export default function CreateOrgModal() {
       <DialogTrigger asChild>
         <Button variant="outline" className="gap-2">
           <Plus className="h-4 w-4" />
-          Create Org
+          Create Project
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Create new Organisation</DialogTitle>
+          <DialogTitle>Create new Project</DialogTitle>
           <p className="text-sm text-muted-foreground">
             Fill in the name and optional description
           </p>

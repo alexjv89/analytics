@@ -10,7 +10,7 @@ jest.mock("@/database", () => ({
     Members: {
       findOne: jest.fn()
     },
-    Orgs: {
+    Projects: {
       findOne: jest.fn()
     }
   }
@@ -29,7 +29,7 @@ describe('isMember', () => {
 
   it('returns mock data when no membership found', async () => {
     db.Members.findOne.mockResolvedValue(null) // No membership found
-    db.Workspaces.findOne.mockResolvedValue(null) // No org found
+    db.Projects.findOne.mockResolvedValue(null) // No org found
 
     const result = await isMember({ params: { o_id: 'org123' } })
 
@@ -58,7 +58,7 @@ describe('isMember', () => {
     const mockOrg = { id: 'org123', name: 'Test Org' }
 
     db.Members.findOne.mockResolvedValue(mockMembership)
-    db.Workspaces.findOne.mockResolvedValue(mockOrg)
+    db.Projects.findOne.mockResolvedValue(mockOrg)
 
     const result = await isMember({ params: { o_id: 'org123' } })
 

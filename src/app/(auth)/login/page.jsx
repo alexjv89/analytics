@@ -8,7 +8,7 @@ export default async function LoginPage({ searchParams }) {
   
   // If user is already authenticated, redirect to main app
   if (session?.user) {
-    redirect('/orgs')
+    redirect('/projects')
   }
 
   return <Login searchParams={resolvedSearchParams} />

@@ -1,8 +1,8 @@
-import ListOrgs from './ListOrgs';
+import ListProjects from './ListProjects';
 
 export default {
-  title: 'Pages/orgs/ListOrgs',
-  component: ListOrgs,
+  title: 'Pages/orgs/ListProjects',
+  component: ListProjects,
   parameters: {
     nextjs: { 
       appDirectory: true,

@@ -13,7 +13,7 @@ function getDB() {
   db = {
     sequelize,
     // Application models
-    Orgs: require('./models/Orgs.model.js')(sequelize),
+    // Orgs: require('./models/Orgs.model.js')(sequelize),
     Members: require('./models/Members.model.js')(sequelize),
     Projects: require('./models/Projects.model.js')(sequelize),
     Eventlogs: require('./models/Eventlogs.model.js')(sequelize),
