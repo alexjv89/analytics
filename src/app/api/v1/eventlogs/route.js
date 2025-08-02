@@ -14,6 +14,7 @@ const EventlogSchema = z.object({
   env: z.string().optional(),
   org: z.union([z.string(), z.number()]).optional(),
   user: z.union([z.string(), z.number()]).optional(),
+  created_at: z.string().datetime().optional(),
   details: z.any().optional(),
 });
 

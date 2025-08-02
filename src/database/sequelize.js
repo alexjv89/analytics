@@ -8,6 +8,11 @@ function getSequelizeInstance() {
     return sequelize;
   }
   
+  // Check if DB_APP is available
+  if (!process.env.DB_APP) {
+    throw new Error('DB_APP environment variable is required but not set');
+  }
+  
   sequelize = new Sequelize(process.env.DB_APP, {
     logging: false,
     dialect: 'postgres',

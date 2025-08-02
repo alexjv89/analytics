@@ -1,2 +1,2 @@
-export { detectParser } from './detectParser';
-export { parseFile } from './parseFile';
+// export { detectParser } from './detectParser';
+// export { parseFile } from './parseFile';

@@ -5,6 +5,20 @@ import SequelizeAdapter, { models } from "@auth/sequelize-adapter"
 import { getSequelizeInstance } from '@/database/sequelize.js'
 
 function createAuthConfig() {
+  // Check if we're in build mode and skip database initialization
+  if (!process.env.DB_APP) {
+    console.warn('⚠️  DB_APP not available - returning minimal auth config for build');
+    return {
+      providers: [Google],
+      callbacks: {
+        session({ session, user }) {
+          session.user.id = user?.id
+          return session
+        }
+      }
+    };
+  }
+  
   const sequelize = getSequelizeInstance();
   
   return {

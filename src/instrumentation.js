@@ -8,6 +8,12 @@
 
 export const register = async () => {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
+    // Skip worker initialization during build process
+    if (process.env.NEXT_PHASE === 'phase-production-build') {
+      console.log('🏗️  Build phase detected - skipping worker initialization');
+      return;
+    }
+    
     const mode = process.env.MODE || 'both';
     
     console.log(`🚀 Starting Next.js in ${mode} mode`);
