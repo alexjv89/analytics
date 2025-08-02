@@ -4,8 +4,8 @@ import { z } from "zod";
 import { authenticateAPIRequest } from "@/policies/authenticateAPIRequest";
 
 const LogsOrgSchema = z.object({
-  name: z.string().optional(),
-  tp_id: z.string().optional(),
+  name: z.string(),
+  tp_id: z.union([z.string(), z.number()]),
 });
 
 export async function POST(request) {
@@ -35,7 +35,7 @@ export async function POST(request) {
     if (validatedData.tp_id) {
       // Use updateOrCreate based on tp_id
       const [record, created] = await db.LogsOrgs.findOrCreate({
-        where: { tp_id: validatedData.tp_id },
+        where: { tp_id: validatedData.tp_id.toString() },
         defaults: dataWithProject
       });
       

@@ -2,13 +2,18 @@ import { NextResponse } from "next/server";
 import { getDB } from "@/database";
 import { z } from "zod";
 import { authenticateAPIRequest } from "@/policies/authenticateAPIRequest";
+import { log } from "async";
 
 const EventlogSchema = z.object({
-  name: z.string().optional(),
-  app_name: z.string().optional(),
-  app_env: z.string().optional(),
-  log_org: z.string().optional(),
-  log_user: z.string().optional(),
+  event: z.string().optional(),
+  app: z.string().optional(),
+  // service: z.string().optional(),
+  // module: z.string().optional(),
+  object: z.string().optional(),
+  action_type: z.string().optional(),
+  env: z.string().optional(),
+  org: z.union([z.string(), z.number()]).optional(),
+  user: z.union([z.string(), z.number()]).optional(),
   details: z.any().optional(),
 });
 
@@ -31,7 +36,11 @@ export async function POST(request) {
     // Create new eventlog entry with project ID from token
     const eventlog = await db.Eventlogs.create({
       ...validatedData,
-      project: project.id
+      // event: validatedData.event,
+      // org: validatedData.org,
+      // user: validatedData.user,
+      project: project.id,
+      
     });
     
     return NextResponse.json({

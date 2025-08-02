@@ -13,23 +13,31 @@ module.exports = function(sequelize){
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    name: {
+    event: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    app_name: {
+    app: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    app_env: {
+    object: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    log_org: {
+    action_type: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    log_user: {
+    env: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    org: { // log organization
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    user: { // log user
       type: DataTypes.TEXT,
       allowNull: true,
     },
