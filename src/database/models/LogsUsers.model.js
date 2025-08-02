@@ -22,7 +22,7 @@ module.exports = function(sequelize){
     },
     project: {
       type: DataTypes.STRING(12),
-      allowNull: true,
+      allowNull: false,
     },
   }, {
     tableName: 'logs_users',

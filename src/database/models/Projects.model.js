@@ -48,7 +48,7 @@ module.exports = function(sequelize){
     // },
     client_secret: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
   }, {
     tableName: 'projects',
